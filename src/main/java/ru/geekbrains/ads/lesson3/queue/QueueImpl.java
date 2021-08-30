@@ -2,8 +2,8 @@ package ru.geekbrains.ads.lesson3.queue;
 
 public class QueueImpl<E> implements Queue<E> {
 
-    private final int TAIL_DEFAULT = -1;
-    private final int HEAD_DEFAULT = 0;
+    protected final int TAIL_DEFAULT = -1;
+    protected final int HEAD_DEFAULT = 0;
     protected final E[] data;
     protected int size;
 
@@ -33,6 +33,10 @@ public class QueueImpl<E> implements Queue<E> {
         }
         E value = data[head++];
         size--;
+        if (size == 0) {
+            tail = TAIL_DEFAULT;
+            head = HEAD_DEFAULT;
+        }
         return value;
     }
 
