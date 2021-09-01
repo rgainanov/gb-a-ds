@@ -17,14 +17,14 @@ public class StackImpl<E> implements Stack<E> {
 
     @Override
     public E pop() {
-        E value = peak();
+        E value = peek();
         data[--size] = null;
         return value;
     }
 
     //
     @Override
-    public E peak() {
+    public E peek() {
         return data[size -1];
     }
 
