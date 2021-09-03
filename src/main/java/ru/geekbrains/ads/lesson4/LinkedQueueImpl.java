@@ -22,7 +22,7 @@ public class LinkedQueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public E peakFront() {
+    public E peekFront() {
         return data.getFirst();
     }
 

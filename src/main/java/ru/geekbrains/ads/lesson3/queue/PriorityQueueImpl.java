@@ -68,7 +68,7 @@ public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue
     }
 
     @Override
-    public E peakFront() {
+    public E peekFront() {
         return data[size--];
     }
 }
