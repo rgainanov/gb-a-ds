@@ -10,7 +10,7 @@ public class MainApp {
 //        linkedListTest();
 //        linkedListStackTest();
 //        twoSidedLinkedListTest();
-        linkedQueueTest();
+//        linkedQueueTest();
     }
 
     public static void linkedQueueTest() {
@@ -21,7 +21,7 @@ public class MainApp {
         queue.insert(12);
         queue.insert(13);
 
-        System.out.println("first element: " + queue.peakFront());
+        System.out.println("first element: " + queue.peekFront());
         queue.display();
 
         queue.remove();

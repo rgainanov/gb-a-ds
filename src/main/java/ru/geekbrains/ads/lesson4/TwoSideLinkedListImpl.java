@@ -27,17 +27,20 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
     }
 
     @Override
-    public E getLast() {
-        return getValue(lastElement);
-    }
-
-    @Override
     public E removeFirst() {
         E removedValue = super.removeFirst();
         if (isEmpty()) {
             lastElement = null;
         }
         return removedValue;
+    }
+
+    public E removeLast() {
+        if (lastElement != null) {
+            remove(lastElement.item);
+            return lastElement.item;
+        }
+        return null;
     }
 
     @Override
@@ -50,7 +53,6 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
             if (current.item.equals(value)) {
                 break;
             }
-
             previous = current;
             current = current.next;
         }
@@ -72,5 +74,17 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
         size--;
 
         return true;
+    }
+
+    @Override
+    public E[] getEarray() {
+        E[] arr = (E[]) new Object[size];
+        Node<E> current = firstElement;
+        int i = 0;
+        while (current != null) {
+            arr[i++] = current.item;
+            current = current.next;
+        }
+        return arr;
     }
 }

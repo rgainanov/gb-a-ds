@@ -41,7 +41,7 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public E peakFront() {
+    public E peekFront() {
         return data[head];
     }
 

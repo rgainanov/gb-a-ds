@@ -2,7 +2,13 @@ package ru.geekbrains.ads.lesson3.homework;
 
 import ru.geekbrains.ads.lesson3.queue.QueueImpl;
 
+import java.util.Iterator;
+
 public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
+
+    public DequeImpl(int maxSize) {
+        super(maxSize);
+    }
 
     public int getTail() {
         return tail;
@@ -10,10 +16,6 @@ public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
 
     public int getHead() {
         return head;
-    }
-
-    public DequeImpl(int maxSize) {
-        super(maxSize);
     }
 
     @Override
@@ -54,5 +56,10 @@ public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
             head = HEAD_DEFAULT;
         }
         return value;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
     }
 }
