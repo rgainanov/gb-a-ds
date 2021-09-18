@@ -2,16 +2,16 @@ package ru.geekbrains.ads.lesson8;
 
 public class HashTableImpl<K, V> implements HashTable<K, V> {
 
-    private final Item<K, V>[] data;
-    private final Item<K, V> emptyItem;
-    private int size;
+    protected Item<K, V>[] data;
+    protected final Item<K, V> emptyItem;
+    protected int size;
 
     public HashTableImpl(int initialCapacity) {
         this.data = new Item[initialCapacity * 2];
         this.emptyItem = new Item<>(null, null);
     }
 
-    private int hashFunc(K key) {
+    protected int hashFunc(K key) {
         return key.hashCode() % data.length;
     }
 
@@ -41,7 +41,7 @@ public class HashTableImpl<K, V> implements HashTable<K, V> {
         return 1;
     }
 
-    private boolean isKeysEquals(Item<K, V> item, K key) {
+    protected boolean isKeysEquals(Item<K, V> item, K key) {
         if(item == emptyItem) {
             return false;
         }
@@ -106,7 +106,7 @@ public class HashTableImpl<K, V> implements HashTable<K, V> {
         System.out.println("---------------");
     }
 
-    static class Item<K, V> implements Entry<K, V> {
+    protected static class Item<K, V> implements Entry<K, V> {
 
         private final K key;
         private V value;
